@@ -7,7 +7,8 @@
     "test": "nodemon -e tsc --exec ",
     "ts-build": "tsc",
     "start": "npm run ts-build && node dist/bin/main",
-    "dev": "nodemon -e ts --exec \"npm start\""
+    "dev": "nodemon -e ts --exec \"npm start\"",
+    "lever": "node dist/bin/main"
   },
   "keywords": [
     "Derby"

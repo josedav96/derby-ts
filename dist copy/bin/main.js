@@ -1,5 +1,5 @@
-import derbyStarter from 'derby-starter';
-import path from 'path';
+const derbyStarter = require('derby-starter');
+const path = require('path');
 
 const port = process.env.port || 3002;
 
@@ -10,5 +10,3 @@ derbyStarter.run(
         static: path.join(__dirname, '..', '..', 'public')
     }
 );
-
-
