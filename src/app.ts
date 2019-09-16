@@ -11,10 +11,17 @@ app.loadViews(path.join(__dirname, '..', 'views'));
 const backend = derby.createBackend({ db });
 const model = backend.createModel();
 
+indexRoute('/', app);
+formRoute('/form', app);
+listaRoute('/lista', app);
 
-app.component('message:form', FormComponent);
+app.component('message:form', EditForm);
 
 function EditForm() {}
+
+EditForm.prototype.init = () => {
+  console.log("Se inicializa el componente");
+}
 
 EditForm.prototype.done = function() {
     var model = this.model;
@@ -36,9 +43,6 @@ EditForm.prototype.done = function() {
     }
 };
 
-indexRoute('/', app);
-formRoute('/form', app);
-listaRoute('/lista', app);
 
 
 module.exports = app;

@@ -1,4 +1,49 @@
-<Body:>
-  <!--Templates define both HTML and model-view bindings-->
-  Holler: <input value="{{hello.message}}">
-  <h2>{{hello.message}}</h2>
+<index:>
+    <div class="container">
+        <view is="form" person="{{_page.person}}"></view>
+    </div>
+
+    <form:>
+        <h2>
+            Add a new person
+        </h2>
+        <form role="form" class="well" on-submit="done()">
+            <div class="row">
+                <div class="col-xs-6">
+                    <field label="Name" has-error="{{nameError}}">
+                        <input type="text" class="form-control" as="nameInput"
+                            autofocus="{{!person.id}}">
+                    </field>
+                    <field label="Email">
+                        <input type="email" class="form-control">
+                    </field>
+                    <field label="Twitter">
+                        <input type="text" class="form-control">
+                    </field>
+                </div>
+
+                <div class="col-xs-6">
+                    <field label="Gender">
+                        <select>
+                            <option>Female</option>
+                            <option>Male</option>
+                            <option>Other</option>
+                        </select>
+                    </field>
+                    <field label="Phone">
+                        <input type="tel" class="form-control">
+                    </field>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Add person
+            </button>
+            
+        </form>
+
+        <field: element="field">
+            <div class="form-group{{if @hasError}} has-error{{/if}}">
+                <label class="control-label">{{@label}}</label>
+                {{@content}}
+            </div>
